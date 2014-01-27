@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BascoJayaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BascoJayaModelStoreContainer">
+          <EntitySet Name="Barang" EntityType="BascoJayaModel.Store.Barang" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Karyawan" EntityType="BascoJayaModel.Store.Karyawan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pelanggan" EntityType="BascoJayaModel.Store.Pelanggan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pemasaran" EntityType="BascoJayaModel.Store.Pemasaran" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pemesanan" EntityType="BascoJayaModel.Store.Pemesanan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Supplier" EntityType="BascoJayaModel.Store.Supplier" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Barang">
+          <Key>
+            <PropertyRef Name="BarangId" />
+          </Key>
+          <Property Name="BarangId" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="MerkBarang" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="JenisBarang" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Harga" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Supplier" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Stok" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Karyawan">
+          <Key>
+            <PropertyRef Name="IdKaryawan" />
+          </Key>
+          <Property Name="IdKaryawan" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="NamaKaryawan" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="AlamatKaryawan" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="NoTelpon" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="TglLahir" Type="date" Nullable="false" />
+          <Property Name="Bagian" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Pelanggan">
+          <Key>
+            <PropertyRef Name="PelangganID" />
+          </Key>
+          <Property Name="PelangganID" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="NamaPelanggan" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Alamat" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="NoTelpon" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="NegaraAsal" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Pemasaran">
+          <Key>
+            <PropertyRef Name="PemasaranID" />
+          </Key>
+          <Property Name="PemasaranID" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="TglPemasaran" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pemesanan">
+          <Key>
+            <PropertyRef Name="PemesananID" />
+          </Key>
+          <Property Name="PemesananID" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="PelangganID" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="NamaPelanggan" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="JenisPesanan" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="JumlahPesanan" Type="int" Nullable="false" />
+          <Property Name="TglPemesanan" Type="date" Nullable="false" />
+          <Property Name="NamaSupplier" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="StatusPemesanan" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="NamaSupplier" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="AlamatSupplier" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="NoTelpon" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Kota" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="JenisBarang" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BascoJayaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BascoJayaEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Barang" EntityType="BascoJayaModel.Barang" />
+          <EntitySet Name="Karyawan" EntityType="BascoJayaModel.Karyawan" />
+          <EntitySet Name="Pelanggan" EntityType="BascoJayaModel.Pelanggan" />
+          <EntitySet Name="Pemasaran" EntityType="BascoJayaModel.Pemasaran" />
+          <EntitySet Name="Pemesanan" EntityType="BascoJayaModel.Pemesanan" />
+          <EntitySet Name="Supplier" EntityType="BascoJayaModel.Supplier" />
+        </EntityContainer>
+        <EntityType Name="Barang">
+          <Key>
+            <PropertyRef Name="BarangId" />
+          </Key>
+          <Property Name="BarangId" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="MerkBarang" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="JenisBarang" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Harga" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Supplier" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Stok" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="Karyawan">
+          <Key>
+            <PropertyRef Name="IdKaryawan" />
+          </Key>
+          <Property Name="IdKaryawan" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="NamaKaryawan" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="AlamatKaryawan" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="NoTelpon" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="TglLahir" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Bagian" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="Pelanggan">
+          <Key>
+            <PropertyRef Name="PelangganID" />
+          </Key>
+          <Property Name="PelangganID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="NamaPelanggan" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Alamat" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelpon" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="NegaraAsal" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Pemasaran">
+          <Key>
+            <PropertyRef Name="PemasaranID" />
+          </Key>
+          <Property Name="PemasaranID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="TglPemasaran" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Pemesanan">
+          <Key>
+            <PropertyRef Name="PemesananID" />
+          </Key>
+          <Property Name="PemesananID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="PelangganID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="NamaPelanggan" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="JenisPesanan" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="JumlahPesanan" Type="Int32" Nullable="false" />
+          <Property Name="TglPemesanan" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NamaSupplier" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="StatusPemesanan" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="NamaSupplier" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="AlamatSupplier" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="NoTelpon" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Kota" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="JenisBarang" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BascoJayaModelStoreContainer" CdmEntityContainer="BascoJayaEntities1">
+          <EntitySetMapping Name="Barang">
+            <EntityTypeMapping TypeName="BascoJayaModel.Barang">
+              <MappingFragment StoreEntitySet="Barang">
+                <ScalarProperty Name="BarangId" ColumnName="BarangId" />
+                <ScalarProperty Name="MerkBarang" ColumnName="MerkBarang" />
+                <ScalarProperty Name="JenisBarang" ColumnName="JenisBarang" />
+                <ScalarProperty Name="Harga" ColumnName="Harga" />
+                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+                <ScalarProperty Name="Stok" ColumnName="Stok" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Karyawan">
+            <EntityTypeMapping TypeName="BascoJayaModel.Karyawan">
+              <MappingFragment StoreEntitySet="Karyawan">
+                <ScalarProperty Name="IdKaryawan" ColumnName="IdKaryawan" />
+                <ScalarProperty Name="NamaKaryawan" ColumnName="NamaKaryawan" />
+                <ScalarProperty Name="AlamatKaryawan" ColumnName="AlamatKaryawan" />
+                <ScalarProperty Name="NoTelpon" ColumnName="NoTelpon" />
+                <ScalarProperty Name="TglLahir" ColumnName="TglLahir" />
+                <ScalarProperty Name="Bagian" ColumnName="Bagian" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pelanggan">
+            <EntityTypeMapping TypeName="BascoJayaModel.Pelanggan">
+              <MappingFragment StoreEntitySet="Pelanggan">
+                <ScalarProperty Name="PelangganID" ColumnName="PelangganID" />
+                <ScalarProperty Name="NamaPelanggan" ColumnName="NamaPelanggan" />
+                <ScalarProperty Name="Alamat" ColumnName="Alamat" />
+                <ScalarProperty Name="NoTelpon" ColumnName="NoTelpon" />
+                <ScalarProperty Name="NegaraAsal" ColumnName="NegaraAsal" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pemasaran">
+            <EntityTypeMapping TypeName="BascoJayaModel.Pemasaran">
+              <MappingFragment StoreEntitySet="Pemasaran">
+                <ScalarProperty Name="PemasaranID" ColumnName="PemasaranID" />
+                <ScalarProperty Name="TglPemasaran" ColumnName="TglPemasaran" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pemesanan">
+            <EntityTypeMapping TypeName="BascoJayaModel.Pemesanan">
+              <MappingFragment StoreEntitySet="Pemesanan">
+                <ScalarProperty Name="PemesananID" ColumnName="PemesananID" />
+                <ScalarProperty Name="PelangganID" ColumnName="PelangganID" />
+                <ScalarProperty Name="NamaPelanggan" ColumnName="NamaPelanggan" />
+                <ScalarProperty Name="JenisPesanan" ColumnName="JenisPesanan" />
+                <ScalarProperty Name="JumlahPesanan" ColumnName="JumlahPesanan" />
+                <ScalarProperty Name="TglPemesanan" ColumnName="TglPemesanan" />
+                <ScalarProperty Name="NamaSupplier" ColumnName="NamaSupplier" />
+                <ScalarProperty Name="StatusPemesanan" ColumnName="StatusPemesanan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplier">
+            <EntityTypeMapping TypeName="BascoJayaModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="NamaSupplier" ColumnName="NamaSupplier" />
+                <ScalarProperty Name="AlamatSupplier" ColumnName="AlamatSupplier" />
+                <ScalarProperty Name="NoTelpon" ColumnName="NoTelpon" />
+                <ScalarProperty Name="Kota" ColumnName="Kota" />
+                <ScalarProperty Name="JenisBarang" ColumnName="JenisBarang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
